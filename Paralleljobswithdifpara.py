@@ -3,9 +3,9 @@ import threading
 import time
 
 # Jenkins connection details
-JENKINS_URL = 'http://your-jenkins-url'
-USERNAME = 'your-username'
-PASSWORD = 'your-password'
+JENKINS_URL = 'http://54.90.83.31:8080'
+USERNAME = 'admin'
+PASSWORD = 'admin'
 
 # Connect to Jenkins
 server = jenkins.Jenkins(JENKINS_URL, username=USERNAME, password=PASSWORD)
@@ -19,9 +19,16 @@ def trigger_job(job_name, params):
         print(f"Build number {build_number} started for job {job_name}")
         
         # Poll until the job finishes
-        while server.get_job_info(job_name)['lastCompletedBuild']['number'] < build_number:
-            print(f"Waiting for job {job_name} to complete...")
-            time.sleep(5)
+        #build_info = server.get_build_info(job_name, build_number)
+        #if build_info['building']:
+        #    print(f"Job '{job_name}' is still running...")
+        #    time.sleep(5)  # Wait for a while before checking again
+        #else:
+        #    print(f"Job '{job_name}' completed with status: {build_info['result']}")
+        #    break
+        #while server.get_job_info(job_name)['lastCompletedBuild']['number'] < build_number:
+        #    print(f"Waiting for job {job_name} to complete...")
+        #    time.sleep(5)
 
         print(f"Job {job_name} completed successfully!")
 
