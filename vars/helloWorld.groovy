@@ -4,5 +4,5 @@ def call(Map config=[:]) {
 
 
 def anothercall() {
-  sh "Hello from another function"
+  sh "echo Hello from another function"
 }
