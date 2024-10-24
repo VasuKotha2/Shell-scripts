@@ -3,6 +3,6 @@ def call(Map config=[:]) {
 }
 
 
-def anothercall () {
+def anothercall() {
   sh "Hello from another function"
 }
